@@ -107,10 +107,10 @@ function Contact() {
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Direct</div>
             <div className="mt-3 space-y-3 text-sm">
               <a href="mailto:hello@example.com" className="flex items-center gap-3 hover:text-primary">
-                <Mail size={16} /> hello@alexvega.dev
+                <Mail size={16} /> karthikeya.official@gmail.com
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin size={16} /> Lisbon, Portugal
+                <MapPin size={16} /> Tamilnadu, India
               </div>
             </div>
           </div>
@@ -138,9 +138,6 @@ function Contact() {
           <div className="glass rounded-3xl p-6 relative overflow-hidden">
             <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl opacity-40" style={{ background: "var(--gradient-primary)" }} />
             <div className="relative">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">Availability</div>
-              <div className="mt-3 text-lg">Booking Q2 2026 · 2 slots open</div>
-              <div className="mt-2 text-sm text-muted-foreground">Typical reply time: under 24h</div>
             </div>
           </div>
         </aside>

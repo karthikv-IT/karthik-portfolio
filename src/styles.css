@@ -4,19 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -62,6 +49,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --radius: 0.875rem;
   /* Deep space background palette */
   --background: oklch(0.13 0.04 275);
@@ -116,6 +104,66 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Pull-cord toggle (dark / default portfolio) */
+  --pull-mount: oklch(0.45 0.04 275);
+  --pull-string: oklch(0.82 0.02 260);
+  --pull-bead: oklch(0.72 0.19 265);
+  --pull-bead-stroke: oklch(0.92 0.02 260);
+  --pull-bead-glow: oklch(0.72 0.19 265 / 55%);
+  --pull-tassel: oklch(0.68 0.18 265);
+  --pull-hint: oklch(0.75 0.03 260);
+  --pull-stretch: 26px;
+}
+
+html.light {
+  color-scheme: light;
+  --background: oklch(0.98 0.008 250);
+  --foreground: oklch(0.18 0.04 275);
+  --card: oklch(1 0 0 / 75%);
+  --card-foreground: oklch(0.18 0.04 275);
+  --popover: oklch(0.99 0.005 250);
+  --popover-foreground: oklch(0.18 0.04 275);
+  --primary: oklch(0.55 0.2 265);
+  --primary-foreground: oklch(0.99 0.005 250);
+  --secondary: oklch(0.94 0.02 265 / 80%);
+  --secondary-foreground: oklch(0.22 0.04 275);
+  --muted: oklch(0.94 0.015 260 / 70%);
+  --muted-foreground: oklch(0.45 0.03 260);
+  --accent: oklch(0.58 0.2 320);
+  --accent-foreground: oklch(0.99 0.005 250);
+  --destructive: oklch(0.55 0.22 20);
+  --destructive-foreground: oklch(0.99 0.005 250);
+  --border: oklch(0 0 0 / 10%);
+  --input: oklch(0 0 0 / 8%);
+  --ring: oklch(0.55 0.2 265);
+
+  --electric: oklch(0.55 0.2 265);
+  --cyan: oklch(0.52 0.14 210);
+  --purple: oklch(0.52 0.2 300);
+  --pink: oklch(0.58 0.2 350);
+  --bg-0: #eef1f8;
+  --bg-1: #e4e9f3;
+  --bg-2: #d8dfea;
+
+  --gradient-primary: linear-gradient(135deg, oklch(0.55 0.2 265), oklch(0.52 0.2 300), oklch(0.58 0.2 350));
+  --gradient-cyan: linear-gradient(135deg, oklch(0.52 0.14 210), oklch(0.55 0.2 265));
+  --gradient-aurora: radial-gradient(ellipse at 20% 20%, oklch(0.68 0.22 300 / 18%), transparent 60%),
+                     radial-gradient(ellipse at 80% 30%, oklch(0.82 0.15 210 / 14%), transparent 55%),
+                     radial-gradient(ellipse at 50% 90%, oklch(0.75 0.22 350 / 14%), transparent 60%);
+  --shadow-glow: 0 0 40px oklch(0.55 0.2 265 / 25%);
+  --shadow-glow-pink: 0 0 60px oklch(0.58 0.2 350 / 20%);
+  --shadow-elegant: 0 20px 60px -20px oklch(0 0 0 / 15%);
+  --glass-bg: oklch(1 0 0 / 55%);
+  --glass-border: oklch(0 0 0 / 10%);
+
+  --pull-mount: oklch(0.72 0.02 260);
+  --pull-string: oklch(0.38 0.03 260);
+  --pull-bead: oklch(0.55 0.2 265);
+  --pull-bead-stroke: oklch(0.35 0.03 260);
+  --pull-bead-glow: oklch(0.55 0.2 265 / 35%);
+  --pull-tassel: oklch(0.5 0.18 265);
+  --pull-hint: oklch(0.45 0.03 260);
 }
 
 .dark {
@@ -164,6 +212,7 @@
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    transition: background-color 0.45s ease, color 0.45s ease;
   }
 
   html {
@@ -239,4 +288,139 @@
     linear-gradient(90deg, oklch(1 0 0 / 4%) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+/* ── Skeuomorphic pull-cord theme toggle ── */
+.pull-cord {
+  position: fixed;
+  top: 0;
+  right: 2rem;
+  z-index: 55;
+  pointer-events: none;
+}
+
+.pull-cord__trigger {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: grab;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pull-cord__trigger:active {
+  cursor: grabbing;
+}
+
+.pull-cord__svg {
+  width: 48px;
+  height: 120px;
+  overflow: visible;
+  filter: drop-shadow(0 6px 12px oklch(0 0 0 / 25%));
+}
+
+.pull-cord__mount {
+  fill: var(--pull-mount);
+}
+
+.pull-cord__mount-shadow {
+  stroke: oklch(0 0 0 / 20%);
+}
+
+.pull-cord__assembly {
+  transform-origin: 24px 10px;
+  will-change: transform;
+}
+
+.pull-cord.is-pulling .pull-cord__assembly {
+  animation: cord-swing 0.78s var(--pull-easing, cubic-bezier(0.34, 1.56, 0.64, 1)) forwards;
+}
+
+@keyframes cord-swing {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  22% {
+    transform: translateY(calc(var(--pull-stretch) + 6px)) scaleY(1.16);
+  }
+  42% {
+    transform: translateY(calc(var(--pull-stretch) * 0.35)) scaleY(1.04);
+  }
+  58% {
+    transform: translateY(-6px) scaleY(0.96);
+  }
+  74% {
+    transform: translateY(3px) scaleY(1.02);
+  }
+  88% {
+    transform: translateY(-1px) scaleY(0.99);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.pull-cord__string {
+  stroke: var(--pull-string);
+}
+
+.pull-cord__bead {
+  fill: var(--pull-bead);
+  stroke: var(--pull-bead-stroke);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 8px var(--pull-bead-glow));
+}
+
+.pull-cord__bead-highlight {
+  fill: oklch(1 0 0 / 35%);
+}
+
+.pull-cord__tassel {
+  fill: var(--pull-tassel);
+}
+
+.pull-cord__hint {
+  margin-top: 0.35rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pull-hint);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pull-cord:hover .pull-cord__hint,
+.pull-cord:focus-within .pull-cord__hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile: center cord so it never overlaps the hamburger (right) or logo (left) */
+@media (max-width: 767px) {
+  .pull-cord {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    z-index: 40;
+    --pull-stretch: 18px;
+  }
+
+  .pull-cord__trigger {
+    /* Compact hit area — only the bead/tassel, not full nav width */
+    width: 44px;
+  }
+
+  .pull-cord__svg {
+    width: 36px;
+    height: 72px;
+  }
+
+  .pull-cord__hint {
+    display: none;
+  }
 }

@@ -42,7 +42,7 @@ function Home() {
             className="mt-6 font-semibold tracking-tight leading-[0.95]"
             style={{ fontFamily: "Space Grotesk, Inter, sans-serif", fontSize: "clamp(2.75rem, 7vw, 5.75rem)" }}
           >
-            Hi, I'm <span className="text-gradient animate-gradient">Alex Vega</span>.
+            Hi, I'm <span className="text-gradient animate-gradient">KARTHIKEYAN V  </span>.
             <br />
             <span className="text-muted-foreground text-[0.7em]">I build immersive</span>
             <br />

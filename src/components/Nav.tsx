@@ -66,7 +66,7 @@ export function Nav() {
         </Link>
 
         <button
-          className="md:hidden p-2 rounded-full hover:bg-white/5"
+          className="relative z-10 md:hidden p-2 rounded-full hover:bg-white/5"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
         >

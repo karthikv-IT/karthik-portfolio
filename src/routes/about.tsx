@@ -6,7 +6,7 @@ import { Reveal } from "../components/Reveal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Alex Vega" },
+      { title: "About — Karthik" },
       { name: "description", content: "The journey, philosophy and craft of a full-stack developer." },
       { property: "og:title", content: "About — Alex Vega" },
       { property: "og:description", content: "The journey, philosophy and craft of a full-stack developer." },
@@ -17,9 +17,8 @@ export const Route = createFileRoute("/about")({
 
 const stats = [
   { value: "80+", label: "Projects Shipped" },
-  { value: "6+", label: "Years Experience" },
-  { value: "40+", label: "Technologies" },
-  { value: "25+", label: "Happy Clients" },
+  { value: "1+", label: "Years Experience" },
+  { value: "00+", label: "Technologies" },
 ];
 
 const timeline = [
@@ -35,13 +34,13 @@ function About() {
       <SectionHeader
         eyebrow="About"
         title="A developer obsessed with craft, motion & the details you can feel."
-        description="I'm Alex — a full-stack engineer building products that feel as good as they look. From API to pixel, from architecture to micro-interaction."
+        description="I'm karthik — a full-stack engineer building products that feel as good as they look. From API to pixel, from architecture to micro-interaction."
       />
 
-      <div className="mt-14 grid md:grid-cols-4 gap-4">
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.08}>
-            <div className="glass rounded-2xl p-6">
+            <div className="glass rounded-2xl p-6 aspect-[7/2.8] flex flex-col justify-center items-center text-center">
               <div className="text-4xl font-semibold text-gradient" style={{ fontFamily: "Space Grotesk" }}>{s.value}</div>
               <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
             </div>
@@ -59,7 +58,7 @@ function About() {
             </p>
             <div className="mt-6 h-px bg-white/10" />
             <div className="mt-6 text-sm text-muted-foreground">
-              Based in Lisbon · Working globally · Available Q2 2026
+              Based in amilnadu · Working globally · Available Q2 2026
             </div>
           </div>
         </Reveal>

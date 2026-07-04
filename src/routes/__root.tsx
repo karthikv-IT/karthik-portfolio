@@ -18,6 +18,7 @@ import { Footer } from "../components/Footer";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { ParticlesBg } from "../components/ParticlesBg";
 import { ScrollProgress } from "../components/ScrollProgress";
+import { PullCordToggle } from "../components/PullCordToggle";
 
 function NotFoundComponent() {
   return (
@@ -84,10 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alex Vega — Full Stack Developer & Creative Engineer" },
+      { title: "Karthikeyan V— Full Stack Developer & Creative Engineer" },
       { name: "description", content: "Portfolio of Alex Vega, a full-stack developer crafting immersive, high-performance web experiences." },
       { name: "author", content: "Alex Vega" },
-      { property: "og:title", content: "Alex Vega — Full Stack Developer" },
+      { property: "og:title", content: "Karthikeyan V— Full Stack Developer" },
       { property: "og:description", content: "Immersive digital experiences. React, Node, Three.js, and everything between." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -117,6 +118,11 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("portfolio-theme");if(t==="light")document.documentElement.classList.add("light");}catch(e){}})();`,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -136,6 +142,7 @@ function RootComponent() {
         <AuroraBackground />
         <ParticlesBg />
         <ScrollProgress />
+        <PullCordToggle />
         <Nav />
         <AnimatePresence mode="wait">
           <div key={pathname}>
