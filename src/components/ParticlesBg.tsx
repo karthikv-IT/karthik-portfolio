@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import type { Engine } from "@tsparticles/engine";
+
+const init = async (engine: Engine) => {
+  await loadSlim(engine);
+};
 
 export function ParticlesBg({ density = 60 }: { density?: number }) {
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => setReady(true));
-  }, []);
-
-  if (!ready) return null;
-
   return (
-    <Particles
+    <ParticlesProvider init={init}>
+      <Particles
       id="tsparticles"
       className="pointer-events-none fixed inset-0 -z-10"
       options={{
@@ -53,6 +48,7 @@ export function ParticlesBg({ density = 60 }: { density?: number }) {
         },
         detectRetina: true,
       }}
-    />
+      />
+    </ParticlesProvider>
   );
 }
