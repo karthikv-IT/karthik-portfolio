@@ -58,7 +58,7 @@ function About() {
             </p>
             <div className="mt-6 h-px bg-white/10" />
             <div className="mt-6 text-sm text-muted-foreground">
-              Based in amilnadu · Working globally · Available Q2 2026
+            Based in Tamil Nadu · Working globally · Available for freelance projects
             </div>
           </div>
         </Reveal>

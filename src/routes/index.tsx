@@ -32,7 +32,7 @@ function Home() {
             className="inline-flex items-center gap-2 glass rounded-full px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground"
           >
             <Sparkles size={12} className="text-primary" />
-            Available for select projects · 2026
+            Open for new opportunities
           </motion.div>
 
           <motion.h1
@@ -118,7 +118,7 @@ function Home() {
         >
           <div className="absolute inset-0 rounded-full blur-3xl opacity-40" style={{ background: "var(--gradient-primary)" }} />
           <div className="relative h-full w-full">
-            <Hero3D />
+            <img src="/img/1.png" alt="Karthikeyan V" width={560} height={560} className="rounded-full object-cover shadow-5xl" border-blue-500/>
           </div>
         </motion.div>
       </div>

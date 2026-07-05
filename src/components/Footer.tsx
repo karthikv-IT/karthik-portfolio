@@ -15,8 +15,8 @@ export function Footer() {
         <div className="flex items-center gap-3">
           <span className="h-8 w-8 rounded-lg" style={{ background: "var(--gradient-primary)" }} />
           <div>
-            <div className="font-semibold"><span className="text-gradient">dev</span>.folio</div>
-            <div className="text-xs text-muted-foreground">Crafted with obsession. © {new Date().getFullYear()}</div>
+            <div className="font-semibold"><span className="text-gradient">karthik</span>.folio</div>
+            <div className="text-xs text-muted-foreground">Bulit with care. © {new Date().getFullYear()}</div>
           </div>
         </div>
 

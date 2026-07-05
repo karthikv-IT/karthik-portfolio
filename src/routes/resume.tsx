@@ -6,9 +6,9 @@ import { Reveal } from "../components/Reveal";
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Resume — Alex Vega" },
+      { title: "Resume — kathikeyan V" },
       { name: "description", content: "Experience, education and credentials." },
-      { property: "og:title", content: "Resume — Alex Vega" },
+      { property: "og:title", content: "Resume — kathikeyan V" },
       { property: "og:description", content: "Experience, education and credentials." },
     ],
   }),
@@ -16,17 +16,15 @@ export const Route = createFileRoute("/resume")({
 });
 
 const experience = [
-  { role: "Lead Product Engineer", company: "Northwind Labs", period: "2024 — Present", body: "Shaping the platform that powers realtime collaboration for design teams." },
-  { role: "Senior Full Stack Engineer", company: "Kite Commerce", period: "2022 — 2024", body: "Rebuilt the storefront core, cutting p95 latency by 62% and lifting conversion by 18%." },
-  { role: "Full Stack Engineer", company: "Freelance / Studios", period: "2020 — 2022", body: "Delivered 30+ products across fintech, media and consumer." },
+  { role: "Full Stack Engineer", company: "Freelance / Studios", period: "2023", },
 ];
 
 const education = [
-  { title: "MSc Human-Computer Interaction", place: "TU Delft", year: "2020" },
-  { title: "BSc Computer Science", place: "University of Lisbon", year: "2018" },
+  { title: "BTect Information Technology", place: "Sri Balaji Chockalingam Engineering College(SBCE),Arni,Tamil Nadu",  },
+  { title: "Academic Year ", year: "2023 - 2027" },
 ];
 
-const certs = ["AWS Solutions Architect", "Stripe Certified", "Cloudflare Developer", "Google UX"];
+const certs = ["DEVOPS/In ( Alpha city - Divine IT Solutions )",];
 
 function Resume() {
   return (

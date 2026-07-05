@@ -29,7 +29,7 @@ export function Nav() {
             <span className="absolute inset-0 rounded-lg blur-md opacity-60" style={{ background: "var(--gradient-primary)" }} />
           </span>
           <span className="font-semibold tracking-tight">
-            <span className="text-gradient">dev</span>.folio
+            <span className="text-gradient">Click Here to</span>.folio
           </span>
         </Link>
 
